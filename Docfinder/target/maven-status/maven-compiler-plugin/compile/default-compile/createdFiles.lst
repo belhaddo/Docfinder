@@ -1,0 +1,8 @@
+fr\utbm\docfinder\entity\Speciality.class
+fr\utbm\docfinder\entity\Doctor.class
+fr\utbm\docfinder\entity\StatusReservation.class
+fr\utbm\docfinder\entity\StatusAccount.class
+fr\utbm\docfinder\entity\Client.class
+fr\utbm\docfinder\entity\Admin.class
+fr\utbm\docfinder\dao\HibernateUtil.class
+fr\utbm\docfinder\entity\Reservation.class

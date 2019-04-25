@@ -5,29 +5,118 @@
  */
 package fr.utbm.docfinder.entity;
 
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import lombok.Builder;
-import lombok.Data;
 
 /**
  *
  * @author BADELH
  */
-@Data
-@Builder
-@Entity
-public class Reservation {
-   @Id
-   private Long id ;
-   private Long idClient; 
-   private Long idDoctor;
-   private Date startTime;
-   private Date endTime;
-   private Date reservationDate;
-   private Date rdvDate;
-   private Boolean status; 
-   private Double Tarif; 
+
+
+public class Reservation implements Serializable {
+
+    private Long id;
+
+    private Client client;
+
+    private Doctor doctor;
+
+    private Date reservDate;
+
+    private Date rdvDate;
+
+    private Date startTime;
+
+    private Date endTime;
+
+    private StatusReservation status  ;
+
+    private Double tarif;
+
+    public Reservation( Client client, Doctor doctor, Date reservDate, Date rdvDate, Date startTime, Date endTime, StatusReservation status, Double tarif) {
+        this.id = null;
+        this.client = client;
+        this.doctor = doctor;
+        this.reservDate = reservDate;
+        this.rdvDate = rdvDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+        this.tarif = tarif;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public Date getReservDate() {
+        return reservDate;
+    }
+
+    public Date getRdvDate() {
+        return rdvDate;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public StatusReservation getStatus() {
+        return status;
+    }
+
+    public Double getTarif() {
+        return tarif;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public void setReservDate(Date reservDate) {
+        this.reservDate = reservDate;
+    }
+
+    public void setRdvDate(Date rdvDate) {
+        this.rdvDate = rdvDate;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setStatus(StatusReservation status) {
+        this.status = status;
+    }
+
+    public void setTarif(Double tarif) {
+        this.tarif = tarif;
+    }
     
+    
+    
+    
+    
+
 }

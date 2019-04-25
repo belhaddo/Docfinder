@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.docfinder.entity.Doctor"  optimistic-lock="version" schema="DOCFINDER" table="DOCTOR"/>
+  <id column="id_doc" name="id" type="int">
+    <generator class="assigned"/>
+  </id>
+  <property column="fname_doc" name="firstName" not-null="true" type="string"/>
+  <property column="lname_doc" name="lastName" not-null="true" type="string"/>
+  <property column="email_doc" name="email" not-null="true" type="string"/>
+  <property column="pwd_doc" name="pwd" not-null="true" type="string"/>
+  <property column="address_doc" name="address" not-null="true" type="string"/>
+  <property column="desc_doc" name="desc" not-null="false" type="string"/>
+  <property column="phone_doc" name="phone" not-null="true" type="long"/>
+  <property column="status_doc" name="status">
+    <type name="org.hibernate.type.EnumType">
+      <param name="enumClass">fr.utbm.docfinder.entity.StatusAccount</param>
+    </type>
+  </property>
+  <set cascade="all" name="specialities" table="Speciality">
+    <key column="ID_DOC" not-null="true"/>
+    <many-to-many class="Speciality" column="SPEC_ID"/>
+  </set>
+</hibernate-mapping>

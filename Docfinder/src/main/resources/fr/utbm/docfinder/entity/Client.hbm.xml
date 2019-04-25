@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.docfinder.entity.Client" optimistic-lock="version" schema="DOCFINDER" table="CLIENT"/>
+  <id column="id_client" name="id" type="int">
+    <generator class="assigned"/>
+  </id>
+  <property column="fname_client" name="firstName" type="string"/>
+  <property column="lname_client" name="lastName" type="string"/>
+  <property column="email_client" name="email" type="string"/>
+  <property column="pwd_client" name="pwd" type="string"/>
+  <property column="address_client" name="address" type="string"/>
+  <property column="phone_client" name="phone" type="long"/>
+  <property column="status_client" name="status">
+    <type name="org.hibernate.type.EnumType">
+      <param name="enumClass">fr.utbm.docfinder.entity.StatusAccount</param>
+    </type>
+  </property>
+</hibernate-mapping>

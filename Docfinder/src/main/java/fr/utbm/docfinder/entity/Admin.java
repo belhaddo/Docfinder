@@ -5,24 +5,64 @@
  */
 package fr.utbm.docfinder.entity;
 
+import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import lombok.Builder;
-import lombok.Data;
 
 /**
  *
  * @author BADELH
  */
-@Entity
-@Data
-@Builder
-public class Admin {
-    @Id
-    private Long idAdmin;
+
+
+public class Admin implements Serializable{
+
+    
+
+    private Long id;
+    
     private String email;
+    
     private String pwd;
+    
     private Integer phone;
+
+    public Admin( String email, String pwd, Integer phone) {
+        this.id = null;
+        this.email = email;
+        this.pwd = pwd;
+        this.phone = phone;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+    
+    
+
     
 }

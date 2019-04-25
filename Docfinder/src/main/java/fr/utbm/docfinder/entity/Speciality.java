@@ -6,23 +6,52 @@
 package fr.utbm.docfinder.entity;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import lombok.Builder;
-import lombok.Data;
+
+
+
 
 /**
  *
  * @author BADELH
  */
-@Entity
-@Data
-@Builder
 
-public class Speciality implements Serializable {
-    @Id
-    private Long idSpec;
-    private String nameSpec;
-    private String descSpec;
+
+public class Speciality implements Serializable{
+
+    
+    private Long id;
+    
+    private String name;
+    
+    private String desc;
+
+    public Speciality(String name, String desc) {
+        this.id = null;
+        this.name = name;
+        this.desc = desc;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+    
+
     
 }

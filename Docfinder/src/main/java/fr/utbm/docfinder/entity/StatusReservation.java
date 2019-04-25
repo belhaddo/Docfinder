@@ -5,20 +5,20 @@
  */
 package fr.utbm.docfinder.entity;
 
-import javax.persistence.Entity;
-import lombok.Builder;
-import lombok.Data;
-
 /**
  *
  * @author BADELH
  */
-@Data
-@Builder
-//@Entity
-public class HaveSpeciality {
+public enum StatusReservation {
     
-    private Long idDoctor;
-    private Long idSpeLongciality;
+    Wait("demande initié"),
+    Accept("demande accepté"),
+    Refuse("demande refusé");
     
-}
+    private String name;
+
+    
+    private StatusReservation(String name) {
+        this.name = name;
+    }
+    }
