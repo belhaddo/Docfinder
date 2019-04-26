@@ -19,7 +19,9 @@ public class Test {
     
     public static void main(String Args[]){
         System.out.println("!!!!!!!!!!!!!!!!!!! main !!!!!!!!!!!!!!");
-        Speciality spec =new Speciality("Cardiologe","c'est un Cardiologe");
+        Speciality spec =new Speciality();
+        spec.setName("cardiologue");
+        spec.setDesc("cest un carrdio");
         SpecialityService specService = new SpecialityService();
         specService.insertSpecialityService(spec);
         

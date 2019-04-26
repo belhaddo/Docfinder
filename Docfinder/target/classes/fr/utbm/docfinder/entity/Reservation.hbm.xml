@@ -3,14 +3,14 @@
       "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
           "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="fr.utbm.docfinder.entity.Reservation" optimistic-lock="version" schema="DOCFINDER" table="RESERVATION"/>
+  <class name="fr.utbm.docfinder.entity.Reservation" optimistic-lock="version" schema="DOCFINDER" table="RESERVATION">
   <id column="id_reserv" name="id" type="int">
-    <generator class="assigned"/>
+    <generator class="increment"/>
   </id>
-  <many-to-one class="fr.utbm.docfinder.Client" fetch="select" name="client">
+  <many-to-one class="fr.utbm.docfinder.entity.Client" fetch="select" name="Client">
     <column name="id_client" not-null="true"/>
   </many-to-one>
-  <many-to-one class="fr.utbm.docfinder.Doctor" fetch="select" name="doctor">
+  <many-to-one class="fr.utbm.docfinder.entity.Doctor" fetch="select" name="Doctor">
     <column name="id_doc" not-null="true"/>
   </many-to-one>
   <property column="date_reserv" name="reservDate" not-null="true" type="date"/>
@@ -23,4 +23,6 @@
     </type>
   </property>
   <property column="tarif_reserv" name="tarif" not-null="true" type="long"/>
+  
+  </class>
 </hibernate-mapping>

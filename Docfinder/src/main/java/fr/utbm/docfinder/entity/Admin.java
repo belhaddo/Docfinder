@@ -18,7 +18,7 @@ public class Admin implements Serializable{
 
     
 
-    private Long id;
+    private long id;
     
     private String email;
     
@@ -26,14 +26,9 @@ public class Admin implements Serializable{
     
     private Integer phone;
 
-    public Admin( String email, String pwd, Integer phone) {
-        this.id = null;
-        this.email = email;
-        this.pwd = pwd;
-        this.phone = phone;
-    }
+   
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -47,6 +42,10 @@ public class Admin implements Serializable{
 
     public Integer getPhone() {
         return phone;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 

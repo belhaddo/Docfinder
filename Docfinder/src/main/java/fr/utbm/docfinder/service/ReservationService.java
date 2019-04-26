@@ -5,10 +5,19 @@
  */
 package fr.utbm.docfinder.service;
 
+import fr.utbm.docfinder.dao.ReservationDao;
+import fr.utbm.docfinder.dao.SpecialityDao;
+import fr.utbm.docfinder.entity.Reservation;
+
 /**
  *
  * @author BADELH
  */
 public class ReservationService {
+    public void insertReservationService(Reservation reserv){
+        ReservationDao reservDao = new ReservationDao();
+        reservDao.insertReservationDao(reserv);
+        
+    }
     
 }

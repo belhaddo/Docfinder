@@ -6,7 +6,6 @@
 package fr.utbm.docfinder.dao;
 
 import fr.utbm.docfinder.entity.Speciality;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 /**
@@ -15,26 +14,21 @@ import org.hibernate.Session;
  */
 public class SpecialityDao {
 
-    Session session = HibernateUtil.getSessionFactory().openSession();;
+    Session session; 
 // INSERT SPECIALITY
 
     public void insertSpecialityDao(Speciality spec) {
+        session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.persist(spec);
             session.getTransaction().commit();
-        } catch (HibernateException he) {
-            he.printStackTrace();
-            if (session.getTransaction() != null) {
-                try {
-                    session.getTransaction().rollback();
-                } catch (HibernateException he2) {
-                    he2.printStackTrace();
-                }
-            }
+        } catch(Exception ex){
+            System.err.println(" Error insert Speciality");
+        }
         }
 
-    }
+    
 
     // SELECT SPECIALITY
 

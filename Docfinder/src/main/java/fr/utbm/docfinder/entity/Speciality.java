@@ -19,19 +19,15 @@ import java.io.Serializable;
 public class Speciality implements Serializable{
 
     
-    private Long id;
+    private long id ;
     
     private String name;
     
     private String desc;
 
-    public Speciality(String name, String desc) {
-        this.id = null;
-        this.name = name;
-        this.desc = desc;
-    }
+    
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -41,6 +37,10 @@ public class Speciality implements Serializable{
 
     public String getDesc() {
         return desc;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 

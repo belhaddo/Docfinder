@@ -34,17 +34,7 @@ public class Reservation implements Serializable {
 
     private Double tarif;
 
-    public Reservation( Client client, Doctor doctor, Date reservDate, Date rdvDate, Date startTime, Date endTime, StatusReservation status, Double tarif) {
-        this.id = null;
-        this.client = client;
-        this.doctor = doctor;
-        this.reservDate = reservDate;
-        this.rdvDate = rdvDate;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.status = status;
-        this.tarif = tarif;
-    }
+    
 
     public Long getId() {
         return id;
@@ -80,6 +70,10 @@ public class Reservation implements Serializable {
 
     public Double getTarif() {
         return tarif;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setClient(Client client) {

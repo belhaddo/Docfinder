@@ -7,6 +7,7 @@ package fr.utbm.docfinder.entity;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -37,20 +38,8 @@ public class Doctor implements Serializable{
     
     private StatusAccount status;
     
-    private Set<Speciality> specialities;
+    private Set<Speciality> specialities = new HashSet<>();
 
-    public Doctor( String firstName, String lastName, String email, String pwd, String address, String desc, Integer phone, StatusAccount status, Set<Speciality> specialities) {
-        this.id = null;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.pwd = pwd;
-        this.address = address;
-        this.desc = desc;
-        this.phone = phone;
-        this.status = status;
-        this.specialities = specialities;
-    }
 
     public Long getId() {
         return id;
@@ -90,6 +79,10 @@ public class Doctor implements Serializable{
 
     public Set<Speciality> getSpecialities() {
         return specialities;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setFirstName(String firstName) {

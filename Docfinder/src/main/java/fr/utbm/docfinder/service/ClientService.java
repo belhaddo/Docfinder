@@ -5,10 +5,18 @@
  */
 package fr.utbm.docfinder.service;
 
+import fr.utbm.docfinder.dao.ClientDao;
+import fr.utbm.docfinder.entity.Client;
+
 /**
  *
  * @author BADELH
  */
 public class ClientService {
+    public void insertClientService(Client client){
+        ClientDao clientDao = new ClientDao();
+        clientDao.insertClientDao(client);
+        
+    }
     
 }

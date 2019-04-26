@@ -18,7 +18,7 @@ import java.io.Serializable;
 public class Client implements Serializable{
 
    
-    private Long id;
+    private long id;
     
     private String firstName;
     
@@ -30,22 +30,12 @@ public class Client implements Serializable{
     
     private String address;
     
-    private Integer phone;
+    private String phone;
    
     private StatusAccount status;
 
-    public Client( String firstName, String lastName, String email, String pwd, String address, Integer phone, StatusAccount status) {
-        this.id = null;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.pwd = pwd;
-        this.address = address;
-        this.phone = phone;
-        this.status = status;
-    }
-
-    public Long getId() {
+   
+    public long getId() {
         return id;
     }
 
@@ -69,12 +59,16 @@ public class Client implements Serializable{
         return address;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
     public StatusAccount getStatus() {
         return status;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 
@@ -98,7 +92,7 @@ public class Client implements Serializable{
         this.address = address;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
