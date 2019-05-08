@@ -13,10 +13,18 @@ import fr.utbm.docfinder.entity.Doctor;
  * @author BADELH
  */
 public class DoctorService {
-    public void insertDoctorService(Doctor doc){
+
+    public void insertDoctorService(Doctor doc) {
         DoctorDao doctorDao = new DoctorDao();
         doctorDao.insertDoctorDao(doc);
-        
+
     }
-    
+
+    public Doctor getDoctorLoginDao(String email, String pwd) {
+        DoctorDao docService = new DoctorDao();
+        Doctor doc = docService.getDoctorLoginDao(email, pwd);
+        return doc;
+
+    }
+
 }

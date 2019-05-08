@@ -7,6 +7,7 @@ package fr.utbm.docfinder.service;
 
 import fr.utbm.docfinder.dao.SpecialityDao;
 import fr.utbm.docfinder.entity.Speciality;
+import java.util.List;
 
 /**
  *
@@ -19,5 +20,13 @@ public class SpecialityService {
         specDao.insertSpecialityDao(spec);
         
     }
+    
+        public List<Speciality> getSpecialityService(Speciality spec) {
+            
+            SpecialityDao specDao = new SpecialityDao();
+            List list =specDao.getSpecialityDao();
+            return list;
+        }
+
     
 }

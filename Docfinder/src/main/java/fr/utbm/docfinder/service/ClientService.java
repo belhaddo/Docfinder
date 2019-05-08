@@ -19,4 +19,13 @@ public class ClientService {
         
     }
     
+        public Client getClientLoginService(String email, String pwd) {
+            
+            ClientDao cliDao = new ClientDao();
+            Client client  = cliDao.getClientLoginDao(email, pwd);
+            return client;
+            
+        }
+
+    
 }

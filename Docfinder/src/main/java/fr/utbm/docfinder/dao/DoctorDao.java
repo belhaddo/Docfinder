@@ -5,8 +5,10 @@
  */
 package fr.utbm.docfinder.dao;
 
+import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.Doctor;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -25,5 +27,16 @@ public class DoctorDao {
             System.err.println(" Error insert Doctor");
         }
         }
+    public Doctor getDoctorLoginDao(String email, String pwd) {
+        Doctor doc = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("from Doctor where EMAIL_DOC = :email and PWD_DOC= :pwd  ");
+        query.setParameter("email", email);
+        query.setParameter("pwd", pwd);
+        doc =  (Doctor) query.uniqueResult();
+
+        return doc;
+    }
     
 }

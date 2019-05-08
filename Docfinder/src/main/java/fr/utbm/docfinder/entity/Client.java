@@ -99,6 +99,13 @@ public class Client implements Serializable{
     public void setStatus(StatusAccount status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", phone=" + phone + ", status=" + status + '}';
+    }
+    
+    
 }
     
     

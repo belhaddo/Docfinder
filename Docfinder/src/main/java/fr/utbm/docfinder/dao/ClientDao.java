@@ -6,15 +6,16 @@
 package fr.utbm.docfinder.dao;
 
 import fr.utbm.docfinder.entity.Client;
-import fr.utbm.docfinder.entity.Speciality;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 /**
  *
  * @author BADELH
  */
 public class ClientDao {
-        Session session; 
+
+    Session session;
 
     public void insertClientDao(Client client) {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -22,9 +23,21 @@ public class ClientDao {
             session.beginTransaction();
             session.persist(client);
             session.getTransaction().commit();
-        } catch(Exception ex){
+        } catch (Exception ex) {
             System.err.println(" Error insert Client");
         }
-        }
-    
+    }
+
+    public Client getClientLoginDao(String email, String pwd) {
+        Client client = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("from Client where EMAIL_CLIENT = :email and PWD_CLIENT= :pwd  ");
+        query.setParameter("email", email);
+        query.setParameter("pwd", pwd);
+        client =  (Client) query.uniqueResult();
+
+        return client;
+    }
+
 }
