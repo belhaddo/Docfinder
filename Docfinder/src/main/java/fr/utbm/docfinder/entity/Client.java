@@ -6,6 +6,8 @@
 package fr.utbm.docfinder.entity;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.*;
 
 
 
@@ -14,10 +16,17 @@ import java.io.Serializable;
  *
  * @author BADELH
  */
+@Entity
+@Table(name = "CLIENT", uniqueConstraints = {
+@UniqueConstraint(columnNames = "ID"),
+@UniqueConstraint(columnNames = "EMAIL"),
+@UniqueConstraint(columnNames = "PHONE")
 
+})
 public class Client implements Serializable{
 
-   
+   @Id
+   @GeneratedValue
     private long id;
     
     private String firstName;
@@ -31,7 +40,7 @@ public class Client implements Serializable{
     private String address;
     
     private String phone;
-   
+   @Enumerated(EnumType.ORDINAL) 
     private StatusAccount status;
 
    

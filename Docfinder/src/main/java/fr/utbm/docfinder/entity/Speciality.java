@@ -6,6 +6,7 @@
 package fr.utbm.docfinder.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
 
 
@@ -15,10 +16,11 @@ import java.io.Serializable;
  * @author BADELH
  */
 
-
+@Entity
 public class Speciality implements Serializable{
 
-    
+    @Id
+    @GeneratedValue
     private long id ;
     
     private String name;

@@ -9,6 +9,7 @@ package fr.utbm.docfinder.entity;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
 
 /**
@@ -16,10 +17,17 @@ import java.util.Set;
  * @author BADELH
  */
 
+@Entity
+@Table(name = "DOCTOR", uniqueConstraints = {
+@UniqueConstraint(columnNames = "ID"),
+@UniqueConstraint(columnNames = "EMAIL"),
+@UniqueConstraint(columnNames = "PHONE")
 
+})
 public class Doctor implements Serializable{
 
-
+@Id
+@GeneratedValue
     private Long id;
     
     private String firstName;
@@ -34,11 +42,20 @@ public class Doctor implements Serializable{
     
     private String desc;
     
-    private Integer phone;
+    private String phone;
     
+    @Enumerated(EnumType.ORDINAL) 
     private StatusAccount status;
     
-    private Set<Speciality> specialities = new HashSet<>();
+    @OneToMany
+    private Set<Speciality> specialities;
+
+    public Doctor() {
+        this.specialities = new HashSet<>();
+    }
+    
+    
+    
 
 
     public Long getId() {
@@ -69,7 +86,7 @@ public class Doctor implements Serializable{
         return desc;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -109,7 +126,7 @@ public class Doctor implements Serializable{
         this.desc = desc;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

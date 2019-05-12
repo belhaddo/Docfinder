@@ -7,19 +7,22 @@ package fr.utbm.docfinder.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
+import javax.persistence.Id;
 
 /**
  *
  * @author BADELH
  */
 
-
+@Entity
 public class Reservation implements Serializable {
-
+@Id
+@GeneratedValue
     private Long id;
-
+@ManyToOne
     private Client client;
-
+@ManyToOne
     private Doctor doctor;
 
     private Date reservDate;

@@ -18,6 +18,7 @@ public class ClientDao {
     Session session;
 
     public void insertClientDao(Client client) {
+        
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();

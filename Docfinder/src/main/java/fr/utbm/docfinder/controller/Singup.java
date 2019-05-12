@@ -9,6 +9,7 @@ import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.StatusAccount;
 import fr.utbm.docfinder.service.ClientService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,9 +30,39 @@ public class Singup extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public static final String VUE = "/WEB-INF/pages/login.jsp";
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
+        String getFname = request.getParameter("fname");
+         String getLname = request.getParameter("lname");
+         String getEmail = request.getParameter("email");
+         String getPwd = request.getParameter("pwd");
+         String getCpwd = request.getParameter("cpwd");
+         String getAdrs = request.getParameter("adrs");
+         String getPhone = request.getParameter("phone");
+
+         if (getPwd != getCpwd) {
+
+         }
+
+         Client client = new Client();
+         client.setFirstName(getFname);
+         client.setLastName(getLname);
+         client.setEmail(getEmail);
+         client.setPwd(getPwd);
+         client.setAddress(getAdrs);
+         client.setPhone(getPhone);
+         client.setStatus(StatusAccount.Activate);
+         System.out.println("--------------------------------------");
+
+         System.out.println(client.toString());
+         ClientService cliService = new ClientService();
+         cliService.insertClientService(client);
+        response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+    }
+
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -43,9 +74,7 @@ public class Singup extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**
@@ -59,39 +88,7 @@ public class Singup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String getFname = request.getParameter("fname");
-        String getLname = request.getParameter("lname");
-        String getEmail = request.getParameter("email");
-        String getPwd = request.getParameter("pwd");
-        String getCpwd = request.getParameter("cpwd");
-        String getAdrs = request.getParameter("adrs");
-        String getPhone = request.getParameter("phone");
-
-        if (getPwd != getCpwd) {
-
-        }
-
-        Client client = new Client();
-        client.setFirstName(getFname);
-        client.setLastName(getLname);
-        client.setEmail(getEmail);
-        client.setPwd(getPwd);
-        client.setAddress(getAdrs);
-        client.setPhone(getPhone);
-        client.setStatus(StatusAccount.Activate);
-        System.out.println("--------------------------------------");
-
-        System.out.println(client.toString());
-        ClientService cliService = new ClientService();
-        System.out.println("1");
-        cliService.insertClientService(client);
-                System.out.println("2");
-
-        request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
-                System.out.println("3");
-
-
+        processRequest(request, response);
     }
 
     /**

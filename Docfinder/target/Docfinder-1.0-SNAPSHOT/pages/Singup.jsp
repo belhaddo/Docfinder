@@ -11,7 +11,7 @@
         <%@include file="../srcPages/bootsrap.html" %>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sing in</title>
+        <title>Sing up</title>
     </head>
     <body>
         <%@include file="../srcPages/navbar.jsp" %>
