@@ -8,6 +8,7 @@ package main;
 import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.StatusAccount;
 import fr.utbm.docfinder.service.ClientService;
+import java.util.List;
 
 /**
  *
@@ -16,20 +17,15 @@ import fr.utbm.docfinder.service.ClientService;
 public class test {
     
     public static void main(String Args[]){
-        Client client = new Client();
-        client.setFirstName("baa");
-        client.setLastName("annotation");
-        client.setEmail("email@emeil@ke");
-        client.setPwd("pwdpwd");
-        client.setAddress("kdnfknddfndsnf");
-        client.setPhone("0938884949");
-        client.setStatus(StatusAccount.Activate);
-        System.out.println("--------------------------------------");
-        System.out.println(client.toString());
-        ClientService cliService = new ClientService();
-        System.out.println("1");
-        cliService.insertClientService(client);
-        System.out.println("2");
+       ClientService cliService = new ClientService();
+       List<Client> client = cliService.getClientService();
+       
+        for (Client client1 : client) {
+            System.out.println(client1.toString());
+            
+        }
+            
+        }
     }
     
-}
+

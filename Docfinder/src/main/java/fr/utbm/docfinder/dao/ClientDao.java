@@ -6,6 +6,7 @@
 package fr.utbm.docfinder.dao;
 
 import fr.utbm.docfinder.entity.Client;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -18,7 +19,7 @@ public class ClientDao {
     Session session;
 
     public void insertClientDao(Client client) {
-        
+
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -36,9 +37,18 @@ public class ClientDao {
         Query query = session.createQuery("from Client where EMAIL_CLIENT = :email and PWD_CLIENT= :pwd  ");
         query.setParameter("email", email);
         query.setParameter("pwd", pwd);
-        client =  (Client) query.uniqueResult();
+        client = (Client) query.uniqueResult();
 
         return client;
+    }
+
+    public List<Client> getClientDao() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Client> client = null;
+        Query query = session.createQuery("from Client");
+        client = query.list();
+        return client;
+
     }
 
 }

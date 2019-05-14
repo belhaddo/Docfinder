@@ -28,11 +28,11 @@
             <version>5.4.1.Final</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.glassfish.main.common/glassfish-api -->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.glassfish.main.common</groupId>
             <artifactId>glassfish-api</artifactId>
             <version>5.1.0</version>
-        </dependency>
+        </dependency> -->
 
         <!-- https://mvnrepository.com/artifact/org.apache.derby/derbyclient -->
         <dependency>

@@ -6,7 +6,10 @@
 package fr.utbm.docfinder.service;
 
 import fr.utbm.docfinder.dao.ClientDao;
+import fr.utbm.docfinder.dao.HibernateUtil;
 import fr.utbm.docfinder.entity.Client;
+import java.util.List;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -26,6 +29,14 @@ public class ClientService {
             return client;
             
         }
+         public List<Client> getClientService() {
+        List<Client> client = null;
+        ClientDao cliDao = new ClientDao();
+        client = cliDao.getClientDao();
+        
+        return client;
+
+    }
 
     
 }
