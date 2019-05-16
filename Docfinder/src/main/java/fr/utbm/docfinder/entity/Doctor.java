@@ -40,7 +40,7 @@ public class Doctor implements Serializable{
     
     private String address;
     
-    private String desc;
+    private String descs;
     
     private String phone;
     
@@ -82,8 +82,8 @@ public class Doctor implements Serializable{
         return address;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescs() {
+        return descs;
     }
 
     public String getPhone() {
@@ -122,8 +122,8 @@ public class Doctor implements Serializable{
         this.address = address;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescs(String descs) {
+        this.descs = descs;
     }
 
     public void setPhone(String phone) {
@@ -134,8 +134,8 @@ public class Doctor implements Serializable{
         this.status = status;
     }
 
-    public void setSpecialities(Set<Speciality> specialities) {
-        this.specialities = specialities;
+    public void setSpecialities(Speciality specialities) {
+        this.specialities.add(specialities);
     }
     
     

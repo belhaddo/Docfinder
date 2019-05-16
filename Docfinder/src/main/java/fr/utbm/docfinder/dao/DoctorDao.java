@@ -7,6 +7,7 @@ package fr.utbm.docfinder.dao;
 
 import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.Doctor;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -37,6 +38,15 @@ public class DoctorDao {
         doc =  (Doctor) query.uniqueResult();
 
         return doc;
+    }
+    
+    public List<Doctor> getDoctorDao() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Doctor> doc = null;
+        Query query = session.createQuery("from Doctor");
+        doc = query.list();
+        return doc;
+
     }
     
 }

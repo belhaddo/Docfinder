@@ -6,9 +6,12 @@
 package fr.utbm.docfinder.controller;
 
 import fr.utbm.docfinder.entity.Client;
+import fr.utbm.docfinder.entity.Doctor;
 import fr.utbm.docfinder.entity.StatusAccount;
 import fr.utbm.docfinder.service.ClientService;
+import fr.utbm.docfinder.service.DoctorService;
 import java.io.IOException;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,34 +34,52 @@ public class Singup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-
+        
         String getFname = request.getParameter("fname");
-         String getLname = request.getParameter("lname");
-         String getEmail = request.getParameter("email");
-         String getPwd = request.getParameter("pwd");
-         String getCpwd = request.getParameter("cpwd");
-         String getAdrs = request.getParameter("adrs");
-         String getPhone = request.getParameter("phone");
-
-         if (getPwd != getCpwd) {
-
-         }
-
-         Client client = new Client();
-         client.setFirstName(getFname);
-         client.setLastName(getLname);
-         client.setEmail(getEmail);
-         client.setPwd(getPwd);
-         client.setAddress(getAdrs);
-         client.setPhone(getPhone);
-         client.setStatus(StatusAccount.Activate);
-         System.out.println("--------------------------------------");
-
-         System.out.println(client.toString());
-         ClientService cliService = new ClientService();
-         cliService.insertClientService(client);
-        response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+        String getLname = request.getParameter("lname");
+        String getEmail = request.getParameter("email");
+        String getPwd = request.getParameter("pwd");
+        String getCpwd = request.getParameter("cpwd");
+        String getAdrs = request.getParameter("adrs");
+        String getPhone = request.getParameter("phone");
+        
+        String person = request.getParameter("person");
+        
+        if (getPwd.equals(getCpwd)) {
+            if (person.equals("client")) {
+                
+                Client client = new Client();
+                client.setFirstName(getFname);
+                client.setLastName(getLname);
+                client.setEmail(getEmail);
+                client.setPwd(getPwd);
+                client.setAddress(getAdrs);
+                client.setPhone(getPhone);
+                client.setStatus(StatusAccount.Activate);
+                
+                ClientService cliService = new ClientService();
+                cliService.insertClientService(client);
+            }
+            if (person.equals("doctor")) {
+                Doctor doc = new Doctor();
+                doc.setFirstName(getFname);
+                doc.setLastName(getLname);
+                doc.setEmail(getEmail);
+                doc.setPwd(getPwd);
+                doc.setAddress(getAdrs);
+                doc.setPhone(getPhone);
+                doc.setStatus(StatusAccount.Activate);
+                
+                DoctorService docService = new DoctorService();
+                docService.insertDoctorService(doc);
+            }
+            
+            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+            
+        } else {
+            response.sendRedirect(request.getContextPath() + "/pages/Singup.jsp");
+            
+        }
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

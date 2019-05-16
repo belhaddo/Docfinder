@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <%@include file="../srcPages/datatables.html" %>
+        <%@include file="../srcPages/datatables-css.jsp" %>
         <%@include file="../srcPages/bootsrap.html" %>
 
 
@@ -20,8 +20,9 @@
     <body>      
         <%@include file="../srcPages/navbar.jsp" %>
         <br>
-        <div class="container">
-            <table id="data" class="table table-striped table-bordered" style="width:70%">
+        <div class="container" style="width: 70%;">
+            <% List<Client> ListClient = (List<Client>) request.getAttribute("ListClient");%>
+            <table id="data" class="table table-striped table-bordered" >
                 <thead>
                     <tr>
                         <th>First Name</th>
@@ -30,25 +31,29 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Status</th>
+                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        List<Client> ListClient = (List<Client>) request.getAttribute("ListClient");
-                        for (Client client1 : ListClient) {
-                            System.out.println("<tr>");
-                            System.out.println("<th>" + client1.getFirstName() + "</th>");
-                            System.out.println("<th>" + client1.getLastName() + "</th>");
-                            System.out.println("<th>" + client1.getEmail() + "</th>");
-                            System.out.println("<th>" + client1.getAddress() + "</th>");
-                            System.out.println("<th>" + client1.getPhone() + "</th>");
-                            System.out.println("</tr>");
+                <c:forEach items="${ListClient}" var="client">
+                    <tr><td>${client.firstName}</td> 
+                        <td>${client.lastName}</td>
+                        <td>${client.email}</td>
+                        <td>${client.address}</td>
+                        <td>${client.phone}</td>
+                        <td>${client.status}</td>
+                        <td><button type="button" class="btn btn-primary btn-sm" id ="${client.id}">
+                                <span class="glyphicon glyphicon-minus-sign">Info</span></button></td></tr>
 
-                        }
-                    %>
+
+
+
+                </c:forEach>
                 </tbody>
             </table>
         </div>
+                        <%@include file="../srcPages/datatables-js.jsp" %>
 
     </body>
 </html>

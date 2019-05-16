@@ -5,8 +5,11 @@
  */
 package fr.utbm.docfinder.service;
 
+import fr.utbm.docfinder.dao.ClientDao;
 import fr.utbm.docfinder.dao.DoctorDao;
+import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.Doctor;
+import java.util.List;
 
 /**
  *
@@ -26,5 +29,14 @@ public class DoctorService {
         return doc;
 
     }
+     public List<Doctor> getDoctorService() {
+        List<Doctor> doc = null;
+        DoctorDao cliDao = new DoctorDao();
+        doc = cliDao.getDoctorDao();
+        
+        return doc;
+
+    }
+
 
 }

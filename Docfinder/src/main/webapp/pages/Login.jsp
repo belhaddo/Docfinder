@@ -15,11 +15,21 @@
     </head>
     <body>
         <%@include file="../srcPages/navbar.jsp" %>
-<br>
-        <div class="container"  style="width : 60%; height: 250px ; border-radius: 10px;   box-shadow: 10px 10px grey;
- background-color: gainsboro;">
+        <br>
+        <div class="container"  style="width : 60%; height: 300px ; border-radius: 10px;   box-shadow: 10px 10px grey;
+             background-color: gainsboro;">
             <form action="" class="was-validated" method="post">
+                <div class="row justify-content-center">
+                    <label for="sel1" style="font-weight: bold;">I am a : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-group">
 
+                        <select class="form-control" name="person" id="person">
+                            <option value="client">Client</option>
+                            <option value="doctor">Doctor</option>                       
+                        </select>
+                    </div>
+
+                </div>
 
                 <div class="form-group col-sm-12">
                     <label for="email">Email : </label>

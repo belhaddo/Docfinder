@@ -25,7 +25,7 @@ public class Speciality implements Serializable{
     
     private String name;
     
-    private String desc;
+    private String descs;
 
     
 
@@ -37,8 +37,8 @@ public class Speciality implements Serializable{
         return name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescs() {
+        return descs;
     }
 
     public void setId(long id) {
@@ -50,8 +50,8 @@ public class Speciality implements Serializable{
         this.name = name;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescs(String descs) {
+        this.descs = descs;
     }
     
 
