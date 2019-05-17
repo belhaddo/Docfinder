@@ -29,14 +29,18 @@ public class DoctorService {
         return doc;
 
     }
-     public List<Doctor> getDoctorService() {
+
+    public List<Doctor> getDoctorService() {
         List<Doctor> doc = null;
         DoctorDao cliDao = new DoctorDao();
         doc = cliDao.getDoctorDao();
-        
+
         return doc;
 
     }
 
-
+    public void UpdateDoctorService(Doctor oldDoc, Doctor newDoc) {
+        DoctorDao docDao = new DoctorDao();
+        docDao.updateDoctorDao(oldDoc, newDoc);
+    }
 }

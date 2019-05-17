@@ -20,7 +20,7 @@ import java.util.List;
 public class test {
     
     public static void main(String Args[]){
-        DoctorService docService = new DoctorService();
+        /*DoctorService docService = new DoctorService();
         Doctor doc = new Doctor();
         doc.setFirstName("louis");
         doc.setLastName("rafael");
@@ -29,7 +29,10 @@ public class test {
         doc.setEmail("doc1@utbm.fr");doc.setStatus(StatusAccount.Activate);
        // doc.setSpecialities(new Speciality());
         
-        docService.insertDoctorService(doc);
+        docService.insertDoctorService(doc);*/
+        DoctorService docService = new DoctorService();
+            Doctor doc = docService.getDoctorLoginDao("doc1@utbm.fr", "doctor");
+            System.out.println(doc.toString());
        
         }
     }

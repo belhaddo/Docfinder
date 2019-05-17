@@ -5,12 +5,9 @@
  */
 package fr.utbm.docfinder.controller;
 
-import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.Doctor;
-import fr.utbm.docfinder.service.ClientService;
 import fr.utbm.docfinder.service.DoctorService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -34,7 +34,7 @@ public class ClientDao {
         Client client = null;
         session = HibernateUtil.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from Client where EMAIL_CLIENT = :email and PWD_CLIENT= :pwd  ");
+        Query query = session.createQuery("from Client where EMAIL = :email and PWD= :pwd  ");
         query.setParameter("email", email);
         query.setParameter("pwd", pwd);
         client = (Client) query.uniqueResult();
@@ -49,6 +49,23 @@ public class ClientDao {
         client = query.list();
         return client;
 
+    }
+
+    public void updateClientDao(Client oldClient, Client newClient) {
+        session = HibernateUtil.getSessionFactory().openSession();
+	try {
+	    session.beginTransaction();
+            oldClient.setFirstName(newClient.getFirstName());
+            oldClient.setLastName(newClient.getLastName());
+            oldClient.setEmail(newClient.getEmail());
+            oldClient.setPwd(newClient.getPwd());
+            oldClient.setAddress(newClient.getAddress());
+            oldClient.setPhone(newClient.getPhone());            
+	    session.merge(oldClient);
+	    session.getTransaction().commit();
+    } catch (Exception ex) {
+            System.err.println(" Error update client");
+        }
     }
 
 }

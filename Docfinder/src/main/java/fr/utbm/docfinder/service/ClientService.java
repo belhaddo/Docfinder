@@ -37,6 +37,10 @@ public class ClientService {
         return client;
 
     }
+         public void UpdateClientServiceClient(Client oldClient, Client newClient){
+            ClientDao cliDao = new ClientDao();
+             cliDao.updateClientDao(oldClient, newClient);
+         }
 
     
 }

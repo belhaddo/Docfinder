@@ -16,7 +16,8 @@ import org.hibernate.query.Query;
  * @author BADELH
  */
 public class DoctorDao {
-      Session session; 
+
+    Session session;
 
     public void insertDoctorDao(Doctor doc) {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -24,22 +25,23 @@ public class DoctorDao {
             session.beginTransaction();
             session.persist(doc);
             session.getTransaction().commit();
-        } catch(Exception ex){
+        } catch (Exception ex) {
             System.err.println(" Error insert Doctor");
         }
-        }
+    }
+
     public Doctor getDoctorLoginDao(String email, String pwd) {
         Doctor doc = null;
         session = HibernateUtil.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from Doctor where EMAIL_DOC = :email and PWD_DOC= :pwd  ");
+        Query query = session.createQuery("from Doctor where EMAIL = :email and PWD= :pwd  ");
         query.setParameter("email", email);
         query.setParameter("pwd", pwd);
-        doc =  (Doctor) query.uniqueResult();
+        doc = (Doctor) query.uniqueResult();
 
         return doc;
     }
-    
+
     public List<Doctor> getDoctorDao() {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Doctor> doc = null;
@@ -48,5 +50,22 @@ public class DoctorDao {
         return doc;
 
     }
-    
+
+    public void updateDoctorDao(Doctor oldDoc, Doctor newDoc) {
+        session = HibernateUtil.getSessionFactory().openSession();
+	try {
+	    session.beginTransaction();
+            oldDoc.setFirstName(newDoc.getFirstName());
+            oldDoc.setLastName(newDoc.getLastName());
+            oldDoc.setEmail(newDoc.getEmail());
+            oldDoc.setPwd(newDoc.getPwd());
+            oldDoc.setAddress(newDoc.getAddress());
+            oldDoc.setPhone(newDoc.getPhone());            
+	    session.merge(oldDoc);
+	    session.getTransaction().commit();
+    } catch (Exception ex) {
+            System.err.println(" Error update Doctor");
+        }
+    }
+
 }

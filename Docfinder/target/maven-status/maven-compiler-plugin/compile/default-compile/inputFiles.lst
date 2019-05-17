@@ -1,9 +1,10 @@
+C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\controller\Login.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\controller\Singup.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\service\ClientService.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\entity\StatusReservation.java
+C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\controller\DispDoc.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\controller\DispClient.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\dao\ClientDao.java
-C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\test\test.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\service\SpecialityService.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\service\ReservationService.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\entity\Reservation.java
@@ -16,5 +17,6 @@ C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\ja
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\entity\Speciality.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\dao\DoctorDao.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\entity\Admin.java
+C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\controller\UserSpace.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\service\DoctorService.java
 C:\env-java\Java-EE\LO54\Data\Projects\Docfinder\Docfinder\Docfinder\src\main\java\fr\utbm\docfinder\entity\StatusAccount.java

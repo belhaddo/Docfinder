@@ -137,6 +137,11 @@ public class Doctor implements Serializable{
     public void setSpecialities(Speciality specialities) {
         this.specialities.add(specialities);
     }
+
+    @Override
+    public String toString() {
+        return "Doctor{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", descs=" + descs + ", phone=" + phone + ", status=" + status + ", specialities=" + specialities + '}';
+    }
     
     
     

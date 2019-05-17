@@ -24,7 +24,7 @@
                     <label for="sel1" style="font-weight: bold;">I am a : </label>&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="form-group">
               
-                        <select class="form-control" name="person" id="person">
+                        <select class="form-control" name="person">
                             <option value="client">Client</option>
                             <option value="doctor">Doctor</option>                       
                         </select>

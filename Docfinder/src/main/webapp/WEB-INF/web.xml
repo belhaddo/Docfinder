@@ -12,6 +12,18 @@
         <servlet-name>DispDoc</servlet-name>
         <servlet-class>fr.utbm.docfinder.controller.DispDoc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserSpace</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.UserSpace</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProfil</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.UpdateProfil</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Singup</servlet-name>
         <url-pattern>/singup</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>DispDoc</servlet-name>
         <url-pattern>/DispDoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserSpace</servlet-name>
+        <url-pattern>/userspace</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>UpdateProfil</servlet-name>
+        <url-pattern>/UpdateProfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
