@@ -9,40 +9,76 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
-
-
-
 /**
  *
  * @author BADELH
  */
 @Entity
 @Table(name = "CLIENT", uniqueConstraints = {
-@UniqueConstraint(columnNames = "ID"),
-@UniqueConstraint(columnNames = "EMAIL"),
+    @UniqueConstraint(columnNames = "ID")
+    ,
+@UniqueConstraint(columnNames = "EMAIL")
+    ,
 @UniqueConstraint(columnNames = "PHONE")
 
 })
-public class Client implements Serializable{
+public class Client implements Serializable {
 
-   @Id
-   @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
-    
+
     private String firstName;
-    
+
     private String lastName;
-   
+
     private String email;
-    
+
     private String pwd;
-    
+
     private String address;
     
+    private String lat;
+
+    private String lng;
+    
     private String phone;
-   @Enumerated(EnumType.ORDINAL) 
+    @Enumerated(EnumType.ORDINAL)
     private StatusAccount status;
 
+    public Client(long id, String firstName, String lastName, String email, String pwd, String address, String lat, String lng, String phone, StatusAccount status) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.pwd = pwd;
+        this.address = address;
+        this.lat = lat;
+        this.lng = lng;
+        this.phone = phone;
+        this.status = status;
+    }
+
+    public Client() {
+    }
+    
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    
    
     public long getId() {
         return id;
@@ -80,7 +116,6 @@ public class Client implements Serializable{
         this.id = id;
     }
 
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -111,13 +146,10 @@ public class Client implements Serializable{
 
     @Override
     public String toString() {
-        return "Client{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", phone=" + phone + ", status=" + status + '}';
+        return "Client{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", lat=" + lat + ", lng=" + lng + ", phone=" + phone + ", status=" + status + '}';
     }
-    
-    
-}
-    
-    
+
     
     
 
+}

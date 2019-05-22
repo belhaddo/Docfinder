@@ -41,6 +41,8 @@ public class Singup extends HttpServlet {
         String getPwd = request.getParameter("pwd");
         String getCpwd = request.getParameter("cpwd");
         String getAdrs = request.getParameter("adrs");
+        String getLat = request.getParameter("lat");
+        String getLng = request.getParameter("lng");
         String getPhone = request.getParameter("phone");
         
         String person = request.getParameter("person");
@@ -54,9 +56,11 @@ public class Singup extends HttpServlet {
                 client.setEmail(getEmail);
                 client.setPwd(getPwd);
                 client.setAddress(getAdrs);
+                client.setLat(getLat);
+                client.setLng(getLng);
                 client.setPhone(getPhone);
                 client.setStatus(StatusAccount.Activate);
-                
+                System.out.println(client);
                 ClientService cliService = new ClientService();
                 cliService.insertClientService(client);
             }
@@ -67,6 +71,8 @@ public class Singup extends HttpServlet {
                 doc.setEmail(getEmail);
                 doc.setPwd(getPwd);
                 doc.setAddress(getAdrs);
+                doc.setLat(getLat);
+                doc.setLng(getLng);
                 doc.setPhone(getPhone);
                 doc.setStatus(StatusAccount.Activate);
                 

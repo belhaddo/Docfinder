@@ -24,6 +24,10 @@
         <servlet-name>UpdateProfil</servlet-name>
         <servlet-class>fr.utbm.docfinder.controller.UpdateProfil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MapsDoc</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.MapsDoc</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Singup</servlet-name>
         <url-pattern>/singup</url-pattern>
@@ -44,9 +48,13 @@
         <servlet-name>UserSpace</servlet-name>
         <url-pattern>/userspace</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>UpdateProfil</servlet-name>
         <url-pattern>/UpdateProfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MapsDoc</servlet-name>
+        <url-pattern>/MapsDoc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

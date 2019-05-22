@@ -5,58 +5,73 @@
  */
 package fr.utbm.docfinder.entity;
 
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
-
 /**
  *
  * @author BADELH
  */
-
 @Entity
 @Table(name = "DOCTOR", uniqueConstraints = {
-@UniqueConstraint(columnNames = "ID"),
-@UniqueConstraint(columnNames = "EMAIL"),
+    @UniqueConstraint(columnNames = "ID")
+    ,
+@UniqueConstraint(columnNames = "EMAIL")
+    ,
 @UniqueConstraint(columnNames = "PHONE")
 
 })
-public class Doctor implements Serializable{
+public class Doctor implements Serializable {
 
-@Id
-@GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
-    
+
     private String firstName;
-    
+
     private String lastName;
-    
+
     private String email;
-    
+
     private String pwd;
-    
+
     private String address;
+
+     private String lat;
+    
+    private String lng;
     
     private String descs;
-    
+
     private String phone;
-    
-    @Enumerated(EnumType.ORDINAL) 
+
+    @Enumerated(EnumType.ORDINAL)
     private StatusAccount status;
-    
+
     @OneToMany
     private Set<Speciality> specialities;
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
 
     public Doctor() {
         this.specialities = new HashSet<>();
     }
-    
-    
-    
-
 
     public Long getId() {
         return id;
@@ -138,12 +153,26 @@ public class Doctor implements Serializable{
         this.specialities.add(specialities);
     }
 
+    public Doctor(Long id, String firstName, String lastName, String email, String pwd, String address, String lat, String lng, String descs, String phone, StatusAccount status, Set<Speciality> specialities) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.pwd = pwd;
+        this.address = address;
+        this.lat = lat;
+        this.lng = lng;
+        this.descs = descs;
+        this.phone = phone;
+        this.status = status;
+        this.specialities = specialities;
+    }
+
     @Override
     public String toString() {
-        return "Doctor{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", descs=" + descs + ", phone=" + phone + ", status=" + status + ", specialities=" + specialities + '}';
+        return "Doctor{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", lat=" + lat + ", lng=" + lng + ", descs=" + descs + ", phone=" + phone + ", status=" + status + ", specialities=" + specialities + '}';
     }
-    
-    
+
     
     
 
