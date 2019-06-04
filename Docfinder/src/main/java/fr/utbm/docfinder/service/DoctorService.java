@@ -43,4 +43,13 @@ public class DoctorService {
         DoctorDao docDao = new DoctorDao();
         docDao.updateDoctorDao(oldDoc, newDoc);
     }
+    
+        public void deleteDoctorService(Long id) {
+            
+                    DoctorDao docDao = new DoctorDao();
+                    docDao.deleteDoctorDao(id);
+
+            
+        }
+
 }

@@ -14,12 +14,11 @@
         <%@include file="../srcPages/datatables-css.jsp" %>
         <%@include file="../srcPages/bootsrap.html" %>
 
-
-        <title>Clients</title>
+        <title>Doctors</title>
 
     </head>
     <body>      
-        <%@include file="../srcPages/navbar.jsp" %>
+        <%@include file="../srcPages/navbar-auth.jsp" %>
         <br>
         <div class="container" style="width: 70%;">
             <% List<Client> ListDoc = (List<Client>) request.getAttribute("ListDoc");%>
@@ -31,30 +30,39 @@
                         <th>Email</th>
                         <th>Address</th>
                         <th>Phone</th>
-                        <th>Status</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${ListDoc}" var="doc">
-                    <tr><td>${doc.firstName}</td> 
-                        <td>${doc.lastName}</td>
-                        <td>${doc.email}</td>
-                        <td>${doc.address}</td>
-                        <td>${doc.phone}</td>
-                        <td>${doc.status}</td>
-                        <td><button type="button" class="btn btn-primary btn-sm" id ="${client.id}">
-                                <span class="glyphicon glyphicon-minus-sign">Info</span></button></td></tr>
+                    <c:forEach items="${ListDoc}" var="doc">
+                        <tr><td>${doc.firstName}</td> 
+                            <td>${doc.lastName}</td>
+                            <td>${doc.email}</td>
+                            <td>${doc.address}</td>
+                            <td>${doc.phone}</td>
+                            <td><button type="button" onclick="myFunction()" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" id ="${doc.id}">
+                                    <span class="glyphicon glyphicon-minus-sign">Delete</span></button></td></tr>
 
 
 
 
-                </c:forEach>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
-                        <%@include file="../srcPages/datatables-js.jsp" %>
+        <br/><br/>
+        <%@include file="../srcPages/footer.jsp" %>
+
+        <script>
+            function myFunction() {
+                $('button').click(function () {
+                    var x = $(this).attr('id');
+                    window.location.replace("/DeleteDoc?id=" + x);
+                });
+            }
+        </script>
+        <%@include file="../srcPages/datatables-js.jsp" %>
 
     </body>
 </html>

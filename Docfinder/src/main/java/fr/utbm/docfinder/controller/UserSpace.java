@@ -32,20 +32,26 @@ public class UserSpace extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Object person = null;
         HttpSession session = request.getSession();
-        String type = (String) session.getAttribute("type");
-        if (type.equals("client")) {
-            person = (Client) session.getAttribute("user");
-        }
-        if (type.equals("doctor")) {
-            person = (Doctor) session.getAttribute("user");
-        }
-        request.setAttribute("person", person);
-        request.setAttribute("type", type);
-        this.getServletContext().getRequestDispatcher("/pages/UserSpace.jsp").forward(request, response);
 
+        if (session.getAttribute("user") instanceof Doctor || session.getAttribute("user") instanceof Client) {
+            Object person = null;
+            session = request.getSession();
+
+            person = (Object) session.getAttribute("user");
+            if (session.getAttribute("user") instanceof Client) {
+                person = (Client) session.getAttribute("user");
+            }
+            if (session.getAttribute("user") instanceof Doctor) {
+
+                person = (Doctor) session.getAttribute("user");
+            }
+            request.setAttribute("person", person);
+            this.getServletContext().getRequestDispatcher("/pages/UserSpace.jsp").forward(request, response);
+
+        } else {
+            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

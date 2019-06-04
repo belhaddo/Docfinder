@@ -5,8 +5,10 @@
  */
 package fr.utbm.docfinder.controller;
 
+import fr.utbm.docfinder.entity.Admin;
 import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.entity.Doctor;
+import fr.utbm.docfinder.service.AdminService;
 import fr.utbm.docfinder.service.ClientService;
 import fr.utbm.docfinder.service.DoctorService;
 import java.io.IOException;
@@ -46,15 +48,13 @@ public class Login extends HttpServlet {
             Client client = cliService.getClientLoginService(getEmail, getPwd);
 
             if (client != null) {
-                session.setAttribute("type", "client");
                 session.setAttribute("user", client);
 
                 this.getServletContext().getRequestDispatcher("/userspace").forward(request, response);
+            } else {
+                response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+                System.err.println("no match person");
             }
-            else {
-            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
-            System.err.println("no match person");
-        }
 
         }
         if (person.equals("doctor")) {
@@ -62,18 +62,29 @@ public class Login extends HttpServlet {
             DoctorService docService = new DoctorService();
             Doctor doc = docService.getDoctorLoginDao(getEmail, getPwd);
             if (doc != null) {
-                session.setAttribute("type", "doctor");
                 session.setAttribute("user", doc);
                 this.getServletContext().getRequestDispatcher("/userspace").forward(request, response);
 
+            } else {
+                response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+                System.err.println("no match person");
             }
-            else {
-            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
-            System.err.println("no match person");
-        }
 
-        } 
-        
+        }
+        if (person.equals("admin")) {
+
+            AdminService adminService = new AdminService();
+            Admin admin = adminService.getAdminLoginService(getEmail, getPwd);
+            if (admin != null) {
+                session.setAttribute("user", admin);
+                this.getServletContext().getRequestDispatcher("/DispDoc").forward(request, response);
+            }
+            else{
+                response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+                System.err.println("no match person");
+            }
+
+        }
 
     }
 

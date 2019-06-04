@@ -5,13 +5,10 @@
  */
 package main;
 
-import fr.utbm.docfinder.entity.Client;
-import fr.utbm.docfinder.entity.Doctor;
+import fr.utbm.docfinder.entity.Admin;
 import fr.utbm.docfinder.entity.Speciality;
-import fr.utbm.docfinder.entity.StatusAccount;
-import fr.utbm.docfinder.service.ClientService;
-import fr.utbm.docfinder.service.DoctorService;
-import java.util.List;
+import fr.utbm.docfinder.service.AdminService;
+import fr.utbm.docfinder.service.SpecialityService;
 
 /**
  *
@@ -20,20 +17,14 @@ import java.util.List;
 public class test {
     
     public static void main(String Args[]){
-        /*DoctorService docService = new DoctorService();
-        Doctor doc = new Doctor();
-        doc.setFirstName("louis");
-        doc.setLastName("rafael");
-        doc.setAddress("rue 2 Hospital 89000");
-        doc.setPwd("doctor");
-        doc.setEmail("doc1@utbm.fr");doc.setStatus(StatusAccount.Activate);
-       // doc.setSpecialities(new Speciality());
         
-        docService.insertDoctorService(doc);*/
-        DoctorService docService = new DoctorService();
-            Doctor doc = docService.getDoctorLoginDao("doc1@utbm.fr", "doctor");
-            System.out.println(doc.toString());
-       
+        Admin admin = new Admin();
+        admin.setEmail("admin@admin.com");
+        admin.setPwd("admin");
+        admin.setPhone("09999999");
+        
+        AdminService adminService = new AdminService();
+        adminService.insertAdminService(admin);
         }
     }
     

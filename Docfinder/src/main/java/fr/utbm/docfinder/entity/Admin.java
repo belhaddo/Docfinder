@@ -26,7 +26,7 @@ public class Admin implements Serializable{
     
     private String pwd;
     
-    private Integer phone;
+    private String phone;
 
    
 
@@ -42,7 +42,7 @@ public class Admin implements Serializable{
         return pwd;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -59,7 +59,7 @@ public class Admin implements Serializable{
         this.pwd = pwd;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
     

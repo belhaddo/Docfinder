@@ -28,6 +28,34 @@
         <servlet-name>MapsDoc</servlet-name>
         <servlet-class>fr.utbm.docfinder.controller.MapsDoc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Specialities</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.Specialities</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteClient</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.DeleteClient</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteDoc</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.DeleteDoc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSpec</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.DeleteSpec</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSpec</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.AddSpec</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DocSpec</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.DocSpec</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>specToDoc</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.specToDoc</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Singup</servlet-name>
         <url-pattern>/singup</url-pattern>
@@ -55,6 +83,34 @@
     <servlet-mapping>
         <servlet-name>MapsDoc</servlet-name>
         <url-pattern>/MapsDoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Specialities</servlet-name>
+        <url-pattern>/Specialities</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteClient</servlet-name>
+        <url-pattern>/DeleteClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDoc</servlet-name>
+        <url-pattern>/DeleteDoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSpec</servlet-name>
+        <url-pattern>/DeleteSpec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSpec</servlet-name>
+        <url-pattern>/AddSpec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DocSpec</servlet-name>
+        <url-pattern>/DocSpec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>specToDoc</servlet-name>
+        <url-pattern>/specToDoc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

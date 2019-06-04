@@ -44,7 +44,7 @@ public class UpdateProfil extends HttpServlet {
         String getAdrs = request.getParameter("adrs");
         String getPhone = request.getParameter("phone");
 
-        if (session.getAttribute("type").equals("client")) {
+        if (session.getAttribute("user") instanceof Client) {
             Client user = (Client) session.getAttribute("user");
             Client client = new Client();
             client.setFirstName(getFname);
@@ -56,7 +56,7 @@ public class UpdateProfil extends HttpServlet {
             client.setId(user.getId());
             ClientService cliService = new ClientService();
             cliService.UpdateClientServiceClient(user, client);
-        } else if (session.getAttribute("type").equals("doctor")) {
+        } else if (session.getAttribute("user") instanceof Doctor) {
             Doctor user = (Doctor) session.getAttribute("user");
 
             Doctor doc = new Doctor();

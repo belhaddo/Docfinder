@@ -31,24 +31,52 @@ public class SpecialityDao {
     }
 
     public List<Speciality> getSpecialityDao() {
-
+        List<Speciality> listSpec = null;
         session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from speciality");
-        List<Speciality> list = query.list();
-
-        return list;
+        Query query = session.createQuery("from Speciality");
+        listSpec = query.list();
+        return listSpec;
 
     }
 
-    // SELECT SPECIALITY
-    public void updateSpecialityDao(Speciality spec) {
+    public Speciality getSpecialityDao(Integer id) {
+        Speciality spec = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Speciality where id= :id");
+        query.setInteger("id", id);
+        spec = (Speciality)query.uniqueResult();
+        return spec;
+
+    }
+
+    public void updateSpecialityDao(Speciality newSpec, Integer id) {
+        
+        try {
+	    session.beginTransaction();
+            Speciality spec = getSpecialityDao(id);
+            spec.setName(newSpec.getName());
+            spec.setDescs(newSpec.getDescs());
+             session.merge(spec);
+	    session.getTransaction().commit();
+    } catch (Exception ex) {
+            System.err.println(" Error update speciality");
+        }
 
     }
 
     // DELETE SPECIALITY
-
-    public void deleteSpecialityDao(Speciality spec) {
-
+    public void deleteSpecialityDao(Long id) {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+             Speciality spec =session.get(Speciality.class, id);
+         if(spec!=null){
+            session.delete(spec);
+            System.out.println("1 Speciality is deleted");
+         }
+        } catch (Exception ex) {
+            System.err.println("error delete speciality");
+            ex.printStackTrace();
+        }
     }
     // SELECT SPECIALITY
 

@@ -6,7 +6,9 @@
 package fr.utbm.docfinder.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -109,8 +111,8 @@ public class Doctor implements Serializable {
         return status;
     }
 
-    public Set<Speciality> getSpecialities() {
-        return specialities;
+    public List<Speciality> getSpecialities() {
+        return new ArrayList<>(specialities);
     }
 
     public void setId(Long id) {
@@ -172,7 +174,12 @@ public class Doctor implements Serializable {
     public String toString() {
         return "Doctor{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", lat=" + lat + ", lng=" + lng + ", descs=" + descs + ", phone=" + phone + ", status=" + status + ", specialities=" + specialities + '}';
     }
-
+public boolean ListTester(Speciality spec){
+         for(Speciality myspec : this.getSpecialities()) { 
+            if(myspec.getId() == spec.getId()) return false;
+            }
+         return true;   
+    }
     
     
 

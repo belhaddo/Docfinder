@@ -18,7 +18,7 @@
 
     </head>
     <body>      
-        <%@include file="../srcPages/navbar.jsp" %>
+        <%@include file="../srcPages/navbar-auth.jsp" %>
         <br>
         <div class="container" style="width: 70%;">
             <% List<Client> ListClient = (List<Client>) request.getAttribute("ListClient");%>
@@ -30,30 +30,39 @@
                         <th>Email</th>
                         <th>Address</th>
                         <th>Phone</th>
-                        <th>Status</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${ListClient}" var="client">
-                    <tr><td>${client.firstName}</td> 
-                        <td>${client.lastName}</td>
-                        <td>${client.email}</td>
-                        <td>${client.address}</td>
-                        <td>${client.phone}</td>
-                        <td>${client.status}</td>
-                        <td><button type="button" class="btn btn-primary btn-sm" id ="${client.id}">
-                                <span class="glyphicon glyphicon-minus-sign">Info</span></button></td></tr>
+                    <c:forEach items="${ListClient}" var="client">
+                        <tr><td>${client.firstName}</td> 
+                            <td>${client.lastName}</td>
+                            <td>${client.email}</td>
+                            <td>${client.address}</td>
+                            <td>${client.phone}</td>
+                            <td><button type="button" onclick="myFunction()" class="btn btn-danger btn-sm"  id ="${client.id}">
+                                    <span class="glyphicon glyphicon-minus-sign">Delete</span></button></td></tr>
 
 
 
 
-                </c:forEach>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
-                        <%@include file="../srcPages/datatables-js.jsp" %>
 
+        <%@include file="../srcPages/datatables-js.jsp" %>
+        <script>
+            function myFunction() {
+                $('button').click(function () {
+                    var x = $(this).attr('id');
+                    window.location.replace("/DeleteClient?id=" + x);
+                });
+            }
+        </script>
+        <br/><br/>
+
+                <%@include file="../srcPages/footer.jsp" %>
     </body>
 </html>

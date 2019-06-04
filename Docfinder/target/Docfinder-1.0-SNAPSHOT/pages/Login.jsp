@@ -3,7 +3,8 @@
     Created on : May 5, 2019, 5:19:56 PM
     Author     : BADELH
 --%>
-
+<% session = request.getSession(); %>
+<% session.invalidate();%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,8 @@
         <title>Login</title>
     </head>
     <body>
-        <%@include file="../srcPages/navbar.jsp" %>
+
+        <%@include file="../srcPages/navbar-auth.jsp" %>
         <br>
         <div class="container"  style="width : 60%; height: 300px ; border-radius: 10px;   box-shadow: 10px 10px grey;
              background-color: gainsboro;">
@@ -47,6 +49,8 @@
             </form>
 
         </div>
+        <br/><br/>
+                            <%@include file="../srcPages/footer.jsp" %>
 
     </body>
 </html>

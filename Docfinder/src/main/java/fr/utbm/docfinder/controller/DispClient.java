@@ -5,6 +5,7 @@
  */
 package fr.utbm.docfinder.controller;
 
+import fr.utbm.docfinder.entity.Admin;
 import fr.utbm.docfinder.entity.Client;
 import fr.utbm.docfinder.service.ClientService;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,12 +34,16 @@ public class DispClient extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") instanceof Admin) {
 
-        ClientService clientService = new ClientService();
-        List<Client> ListClient = clientService.getClientService();
-        request.setAttribute( "ListClient", ListClient );
-        	this.getServletContext().getRequestDispatcher( "/pages/dispClient.jsp" ).forward( request, response );
-
+            ClientService clientService = new ClientService();
+            List<Client> ListClient = clientService.getClientService();
+            request.setAttribute("ListClient", ListClient);
+            this.getServletContext().getRequestDispatcher("/pages/dispClient.jsp").forward(request, response);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

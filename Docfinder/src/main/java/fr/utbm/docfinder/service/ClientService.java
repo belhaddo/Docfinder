@@ -16,31 +16,39 @@ import org.hibernate.query.Query;
  * @author BADELH
  */
 public class ClientService {
-    public void insertClientService(Client client){
+
+    public void insertClientService(Client client) {
         ClientDao clientDao = new ClientDao();
         clientDao.insertClientDao(client);
-        
+
     }
-    
-        public Client getClientLoginService(String email, String pwd) {
-            
-            ClientDao cliDao = new ClientDao();
-            Client client  = cliDao.getClientLoginDao(email, pwd);
-            return client;
-            
-        }
-         public List<Client> getClientService() {
-        List<Client> client = null;
+
+    public Client getClientLoginService(String email, String pwd) {
+
         ClientDao cliDao = new ClientDao();
-        client = cliDao.getClientDao();
-        
+        Client client = cliDao.getClientLoginDao(email, pwd);
         return client;
 
     }
-         public void UpdateClientServiceClient(Client oldClient, Client newClient){
-            ClientDao cliDao = new ClientDao();
-             cliDao.updateClientDao(oldClient, newClient);
-         }
 
-    
+    public List<Client> getClientService() {
+        List<Client> client = null;
+        ClientDao cliDao = new ClientDao();
+        client = cliDao.getClientDao();
+
+        return client;
+
+    }
+
+    public void UpdateClientServiceClient(Client oldClient, Client newClient) {
+        ClientDao cliDao = new ClientDao();
+        cliDao.updateClientDao(oldClient, newClient);
+    }
+
+    public void deleteClientService(Long id) {
+        ClientDao cliDao = new ClientDao();
+        cliDao.deleteClientDao(id);
+
+    }
+
 }

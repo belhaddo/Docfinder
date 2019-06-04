@@ -15,7 +15,7 @@
         <title>Sing up</title>
     </head>
     <body>
-        <%@include file="../srcPages/navbar.jsp" %>
+        <%@include file="../srcPages/navbar-auth.jsp" %>
         <br>
         <div class="container"  style="width : 50%; height : 650px; border-radius: 10px;   box-shadow: 10px 10px grey;
              background-color: gainsboro;">
@@ -67,7 +67,7 @@
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
-                    
+
                     <div class="form-group col-sm-6">
                         <label for="cpwd">Confirm Password :</label>
                         <input type="password" class="form-control" id="cpwd" placeholder="Enter password confirmation" name="cpwd" required>
@@ -107,8 +107,11 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
+        <br/><br/>
+        <%@include file="../srcPages/footer.jsp" %>
 
     </body>
+
     <footer>
         <script>
             const fixedOptions = {

@@ -53,19 +53,38 @@ public class DoctorDao {
 
     public void updateDoctorDao(Doctor oldDoc, Doctor newDoc) {
         session = HibernateUtil.getSessionFactory().openSession();
-	try {
-	    session.beginTransaction();
+        try {
+            session.beginTransaction();
             oldDoc.setFirstName(newDoc.getFirstName());
             oldDoc.setLastName(newDoc.getLastName());
             oldDoc.setEmail(newDoc.getEmail());
             oldDoc.setPwd(newDoc.getPwd());
             oldDoc.setAddress(newDoc.getAddress());
-            oldDoc.setPhone(newDoc.getPhone());            
-	    session.merge(oldDoc);
-	    session.getTransaction().commit();
-    } catch (Exception ex) {
+            oldDoc.setPhone(newDoc.getPhone());
+            session.merge(oldDoc);
+            session.getTransaction().commit();
+                            System.out.println("doctor updated");
+
+        } catch (Exception ex) {
             System.err.println(" Error update Doctor");
         }
     }
+
+    public void deleteDoctorDao(Long id) {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Doctor doc = session.get(Doctor.class, id);
+            if (doc != null) {
+                session.remove(doc);
+                System.out.println("1 Doctor is deleted");
+            }
+        } catch (Exception ex) {
+
+            System.err.println("error delete doctor");
+            ex.printStackTrace();
+        }
+
+    }
+   
 
 }

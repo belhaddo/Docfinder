@@ -5,6 +5,7 @@
  */
 package fr.utbm.docfinder.controller;
 
+import fr.utbm.docfinder.entity.Admin;
 import fr.utbm.docfinder.entity.Doctor;
 import fr.utbm.docfinder.service.DoctorService;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,26 +33,33 @@ public class DispDoc extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         DoctorService docService = new DoctorService();
-        List<Doctor> ListDoc = docService.getDoctorService();
-        request.setAttribute( "ListDoc", ListDoc);
-        	this.getServletContext().getRequestDispatcher( "/pages/dispDoc.jsp" ).forward( request, response );
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") instanceof Admin ) {
 
-        
+            DoctorService docService = new DoctorService();
+            List<Doctor> ListDoc = docService.getDoctorService();
+            request.setAttribute("ListDoc", ListDoc);
+            this.getServletContext().getRequestDispatcher("/pages/dispDoc.jsp").forward(request, response);
+
+        } else {
+            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+        }
+
     }
 
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/**
+ * Handles the HTTP <code>GET</code> method.
+ *
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -64,7 +73,7 @@ public class DispDoc extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -75,7 +84,7 @@ public class DispDoc extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

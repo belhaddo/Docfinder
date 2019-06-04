@@ -14,19 +14,29 @@ import java.util.List;
  * @author BADELH
  */
 public class SpecialityService {
-    
-    public void insertSpecialityService(Speciality spec){
+
+    public void insertSpecialityService(Speciality spec) {
         SpecialityDao specDao = new SpecialityDao();
         specDao.insertSpecialityDao(spec);
-        
-    }
-    
-        public List<Speciality> getSpecialityService(Speciality spec) {
-            
-            SpecialityDao specDao = new SpecialityDao();
-            List list =specDao.getSpecialityDao();
-            return list;
-        }
 
-    
+    }
+
+    public List<Speciality> getSpecialityService() {
+
+        SpecialityDao specDao = new SpecialityDao();
+        List<Speciality> listSpec = specDao.getSpecialityDao();
+        return listSpec;
+    }
+
+    public Speciality getSpecialityService(Integer id) {
+        SpecialityDao specDao = new SpecialityDao();
+        return specDao.getSpecialityDao(id);
+    }
+
+    public void deleteSpecialityDao(Long id) {
+        SpecialityDao specDao = new SpecialityDao();
+        specDao.deleteSpecialityDao(id);
+
+    }
+
 }

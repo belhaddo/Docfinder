@@ -53,18 +53,34 @@ public class ClientDao {
 
     public void updateClientDao(Client oldClient, Client newClient) {
         session = HibernateUtil.getSessionFactory().openSession();
-	try {
-	    session.beginTransaction();
+        try {
+            session.beginTransaction();
             oldClient.setFirstName(newClient.getFirstName());
             oldClient.setLastName(newClient.getLastName());
             oldClient.setEmail(newClient.getEmail());
             oldClient.setPwd(newClient.getPwd());
             oldClient.setAddress(newClient.getAddress());
-            oldClient.setPhone(newClient.getPhone());            
-	    session.merge(oldClient);
-	    session.getTransaction().commit();
-    } catch (Exception ex) {
+            oldClient.setPhone(newClient.getPhone());
+            session.merge(oldClient);
+            session.getTransaction().commit();
+        } catch (Exception ex) {
             System.err.println(" Error update client");
+        }
+    }
+
+    public void deleteClientDao(Long id) {
+        try{
+        session = HibernateUtil.getSessionFactory().openSession();
+
+       Client customer1=session.get(Client.class, id);
+         if(customer1!=null){
+                session.remove(customer1);
+            System.out.println("Customer 1 is deleted");
+         }
+
+        }catch(Exception ex){
+            System.err.println("error delete client");
+            ex.printStackTrace();
         }
     }
 
