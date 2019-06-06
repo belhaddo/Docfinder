@@ -5,8 +5,11 @@
  */
 package fr.utbm.docfinder.controller;
 
-import fr.utbm.docfinder.entity.Client;
+import fr.utbm.docfinder.entity.Doctor;
+import fr.utbm.docfinder.entity.Speciality;
 import fr.utbm.docfinder.service.ClientService;
+import fr.utbm.docfinder.service.DoctorService;
+import fr.utbm.docfinder.service.SpecialityService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,10 +36,19 @@ public class MapsDoc extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ClientService clientService = new ClientService();
-        List<Client> ListClient = clientService.getClientService();
-        request.setAttribute( "ListClient", ListClient );
-        	this.getServletContext().getRequestDispatcher( "/pages/MapsDoc.jsp" ).forward( request, response );
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") instanceof Doctor) {
+            
+            SpecialityService specService = new SpecialityService();
+            List<Speciality> listAllSpec = specService.getSpecialityService();
+            request.setAttribute("listAllSpec", listAllSpec);
+            DoctorService docService = new DoctorService();
+            List<Doctor> ListDoc = docService.getDoctorService();
+            request.setAttribute( "ListDoc", ListDoc );
+            this.getServletContext().getRequestDispatcher( "/pages/MapsDoc.jsp" ).forward( request, response );
+        } else {
+            response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
