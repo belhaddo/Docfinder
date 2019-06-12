@@ -9,6 +9,7 @@
         <property name="hibernate.connection.password">docfinder</property>
         <property name="dialect">org.hibernate.dialect.DerbyDialect</property>
         <property name="current_session_context_class">thread</property>
+        <property name="connection.pool_size">100</property>
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
         <property name="hbm2ddl.auto">update</property>
     

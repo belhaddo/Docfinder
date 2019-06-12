@@ -174,6 +174,7 @@ public class Doctor implements Serializable {
     public String toString() {
         return "Doctor{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", pwd=" + pwd + ", address=" + address + ", lat=" + lat + ", lng=" + lng + ", descs=" + descs + ", phone=" + phone + ", status=" + status + ", specialities=" + specialities + '}';
     }
+    
 public boolean ListTester(Speciality spec){
          for(Speciality myspec : this.getSpecialities()) { 
             if(myspec.getId() == spec.getId()) return false;

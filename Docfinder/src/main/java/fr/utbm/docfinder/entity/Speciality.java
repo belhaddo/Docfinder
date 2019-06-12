@@ -53,6 +53,20 @@ public class Speciality implements Serializable{
     public void setDescs(String descs) {
         this.descs = descs;
     }
+
+    public Speciality() {
+    }
+
+    public Speciality(long id, String name, String descs) {
+        this.id = id;
+        this.name = name;
+        this.descs = descs;
+    }
+
+    @Override
+    public String toString() {
+        return "Speciality{" + "id=" + id + ", name=" + name + ", descs=" + descs + '}';
+    }
     
 
     

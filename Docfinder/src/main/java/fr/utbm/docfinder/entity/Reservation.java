@@ -25,13 +25,13 @@ public class Reservation implements Serializable {
 @ManyToOne
     private Doctor doctor;
 
-    private Date reservDate;
+    private String reservDate;
 
-    private Date rdvDate;
+    private String rdvDate;
 
-    private Date startTime;
+    private String startTime;
 
-    private Date endTime;
+    private String endTime;
 
     private StatusReservation status  ;
 
@@ -51,19 +51,19 @@ public class Reservation implements Serializable {
         return doctor;
     }
 
-    public Date getReservDate() {
+    public String getReservDate() {
         return reservDate;
     }
 
-    public Date getRdvDate() {
+    public String getRdvDate() {
         return rdvDate;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
@@ -87,19 +87,19 @@ public class Reservation implements Serializable {
         this.doctor = doctor;
     }
 
-    public void setReservDate(Date reservDate) {
+    public void setReservDate(String reservDate) {
         this.reservDate = reservDate;
     }
 
-    public void setRdvDate(Date rdvDate) {
+    public void setRdvDate(String rdvDate) {
         this.rdvDate = rdvDate;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -107,9 +107,31 @@ public class Reservation implements Serializable {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "Reservation{" + "id=" + id + ", client=" + client + ", doctor=" + doctor + ", reservDate=" + reservDate + ", rdvDate=" + rdvDate + ", startTime=" + startTime + ", endTime=" + endTime + ", status=" + status + ", tarif=" + tarif + '}';
+    }
+
+    public Reservation() {
+    }
+
+    public Reservation(Long id, Client client, Doctor doctor, String reservDate, String rdvDate, String startTime, String endTime, StatusReservation status, Double tarif) {
+        this.id = id;
+        this.client = client;
+        this.doctor = doctor;
+        this.reservDate = reservDate;
+        this.rdvDate = rdvDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+        this.tarif = tarif;
+    }
+
     public void setTarif(Double tarif) {
         this.tarif = tarif;
     }
+
+    
     
     
     

@@ -23,13 +23,20 @@ public class DoctorService {
 
     }
 
-    public Doctor getDoctorLoginDao(String email, String pwd) {
+    public Doctor getDoctorLoginService(String email, String pwd) {
         DoctorDao docService = new DoctorDao();
         Doctor doc = docService.getDoctorLoginDao(email, pwd);
         return doc;
 
     }
+    
+    public Doctor getDoctorFromIdService(double id) {
+        DoctorDao docService = new DoctorDao();
+        Doctor doc = docService.getDoctorFromIdDao(id);
+        return doc;
 
+    }
+    
     public List<Doctor> getDoctorService() {
         List<Doctor> doc = null;
         DoctorDao cliDao = new DoctorDao();

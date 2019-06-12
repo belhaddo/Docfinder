@@ -30,6 +30,14 @@ public class ClientService {
         return client;
 
     }
+    
+      public Client getClientFromIdService(double id) {
+
+        ClientDao cliDao = new ClientDao();
+        Client client = cliDao.getClientFromIdDao(id);
+        return client;
+
+    }
 
     public List<Client> getClientService() {
         List<Client> client = null;

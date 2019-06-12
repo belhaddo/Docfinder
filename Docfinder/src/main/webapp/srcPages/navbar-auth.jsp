@@ -44,7 +44,9 @@
                 out.println(" <li class='nav-item'>");
                 out.println("<a class='nav-link' href='/userspace'><span class='glyphicon glyphicon-user'></span> Profil </a>");
                 out.println("</li>");
-
+                out.println(" <li class='nav-item'>");
+                out.println("<a class='nav-link' href='/MapsDoc'><span class='glyphicon glyphicon-user'></span> search Doctors </a>");
+                out.println("</li>");
                 out.println("<li>");
                 out.println("<a class='nav-link' href='../pages/Login.jsp'><span class='glyphicon glyphicon-log-in'></span> Disconnect</a>");
                 out.println("</li>");

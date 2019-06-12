@@ -41,6 +41,18 @@ public class ClientDao {
 
         return client;
     }
+    
+      public Client getClientFromIdDao(double id) {
+        Client client = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("from Client where ID = :id ");
+        query.setParameter("id", id);
+        client = (Client) query.uniqueResult();
+
+        return client;
+    }
+
 
     public List<Client> getClientDao() {
         session = HibernateUtil.getSessionFactory().openSession();

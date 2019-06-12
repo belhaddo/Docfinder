@@ -52,9 +52,9 @@ public class specToDoc extends HttpServlet {
             if (doc.ListTester(spec)) {
                 doc.setSpecialities(spec);
             }
-            if (!((Doctor) session.getAttribute("user")).getDescs().equals(desc)) {
-                doc.setDescs(desc);
-            }
+            
+            doc.setDescs(desc);
+            
             docService.UpdateDoctorService(((Doctor) session.getAttribute("user")), doc);
             System.err.println(doc.toString());
             this.getServletContext().getRequestDispatcher("/DocSpec").forward(request, response);

@@ -60,11 +60,11 @@ public class Login extends HttpServlet {
         if (person.equals("doctor")) {
 
             DoctorService docService = new DoctorService();
-            Doctor doc = docService.getDoctorLoginDao(getEmail, getPwd);
+            Doctor doc = docService.getDoctorLoginService(getEmail, getPwd);
             if (doc != null) {
                 session.setAttribute("user", doc);
                 this.getServletContext().getRequestDispatcher("/userspace").forward(request, response);
-
+                
             } else {
                 response.sendRedirect(request.getContextPath() + "/pages/Login.jsp");
                 System.err.println("no match person");

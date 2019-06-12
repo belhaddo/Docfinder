@@ -56,6 +56,10 @@
         <servlet-name>specToDoc</servlet-name>
         <servlet-class>fr.utbm.docfinder.controller.specToDoc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Reservation</servlet-name>
+        <servlet-class>fr.utbm.docfinder.controller.Reservations</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Singup</servlet-name>
         <url-pattern>/singup</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>specToDoc</servlet-name>
         <url-pattern>/specToDoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reservation</servlet-name>
+        <url-pattern>/Reservation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

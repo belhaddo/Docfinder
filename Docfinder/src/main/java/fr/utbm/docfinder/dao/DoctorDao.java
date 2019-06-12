@@ -41,7 +41,16 @@ public class DoctorDao {
 
         return doc;
     }
-
+    
+    public Doctor getDoctorFromIdDao(double id) {
+        Doctor doc = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Doctor where ID= :id");
+        query.setParameter("id", id);
+        doc = (Doctor) query.uniqueResult();
+        return doc;
+    }
+    
     public List<Doctor> getDoctorDao() {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Doctor> doc = null;
